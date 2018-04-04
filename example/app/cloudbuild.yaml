@@ -1,4 +1,5 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'asia.gcr.io/worksap-x-manuscript-199502/example', '-f', './app/Dockerfile', '.']
+  dir: 'example/'
 images: ['asia.gcr.io/worksap-x-manuscript-199502/example']
