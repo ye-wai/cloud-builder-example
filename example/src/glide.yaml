@@ -1,0 +1,11 @@
+package: .
+import:
+- package: github.com/gin-gonic/gin
+  version: ~1.2.0
+- package: google.golang.org/appengine
+  version: ~1.0.0
+- package: golang.org/x/net # this is necessary for google.golang.org/appengine
+  version: release-branch.go1.8
+  subpackages:
+    - context
+
