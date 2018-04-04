@@ -1,0 +1,17 @@
+runtime: custom
+
+env: flex
+
+service: example
+
+network:
+  instance_tag: example-instance
+
+resources:
+  cpu: 1
+  memory_gb: 0.90
+  disk_size_gb: 10
+
+automatic_scaling:
+  min_num_instances: 1
+  max_num_instances: 2
