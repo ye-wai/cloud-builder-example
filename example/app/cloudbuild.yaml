@@ -1,5 +1,8 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'asia.gcr.io/worksap-x-manuscript-199502/example:$BRANCH_NAME', '-f', './app/Dockerfile', '.']
+  args: ['build', '-t', 'asia.gcr.io/$PROJECT_ID/example:$BRANCH_NAME', '-f', './app/Dockerfile', '.']
   dir: 'example/'
-images: ['asia.gcr.io/worksap-x-manuscript-199502/example:$BRANCH_NAME']
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['app', 'deploy', '--project', '$PROJECT_ID', '--image-url' , 'asia.gcr.io/$PROJECT_ID/example:$BRANCH_NAME', './app/app.yaml']
+  dir: 'example/'
+images: ['asia.gcr.io/$PROJECT_ID/example:$BRANCH_NAME']
